@@ -1,0 +1,37 @@
+.center-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30rem;
+}
+
+.u-pading-top {
+    padding-top: 5rem;
+}
+
+.u-margin-top-big {
+   margin-top: 5rem;
+}
+
+h1 {
+    font-weight: 300;
+    margin-bottom: 1rem;
+}
+
+p {
+    font-weight: 300;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.query-result-table {
+    margin: 5rem 0;
+}
+
+.my-nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}

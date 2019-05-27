@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"></link>
+        <link rel="stylesheet" href="./css/main.css"></link>
+        <title>Houses of Dreams</title>
+    </h:head>
+    <h:body class="u-pading-top">
+        <ui:include src="/navbar.xhtml" />
+        <div class="container">
+            <h1 class="text-center">Buscar Propiedad</h1>
+            <p class="text-center">Escribe la cédula una persona para consultar las propiedades de esta.</p>
+            <form class="u-margin-top-big">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Cédula del Propietario</label>
+                    <input type="text" class="form-control" id="user" placeholder="Cedula del Propietario" required="true"></input>
+                </div>
+                    <button type="submit" class="btn btn-success btn-primary btn-block">¡Buscar!</button>
+            </form>
+        </div>
+    </h:body>
+</html>
