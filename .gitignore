@@ -1,6 +1,6 @@
 
-# Created by https://www.gitignore.io/api/web,java,linux,macos,windows,netbeans,java-web
-# Edit at https://www.gitignore.io/?templates=web,java,linux,macos,windows,netbeans,java-web
+# Created by https://www.gitignore.io/api/java,linux,macos,windows,netbeans,java-web
+# Edit at https://www.gitignore.io/?templates=java,linux,macos,windows,netbeans,java-web
 
 ### Java ###
 # Compiled class file
@@ -109,4 +109,6 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# End of https://www.gitignore.io/api/web,java,linux,macos,windows,netbeans,java-web
+# End of https://www.gitignore.io/api/java,linux,macos,windows,netbeans,java-web
+build.xml
+nbproject/
