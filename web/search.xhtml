@@ -18,13 +18,13 @@ and open the template in the editor.
         <div class="container">
             <h1 class="text-center">Buscar Propiedad</h1>
             <p class="text-center">Escribe la cédula una persona para consultar las propiedades de esta.</p>
-            <form class="u-margin-top-big">
+            <h:form class="u-margin-top-big">
                 <div class="form-group">
-                    <label for="exampleInputEmail1">Cédula del Propietario</label>
-                    <input type="text" class="form-control" id="user" placeholder="Cedula del Propietario" required="true"></input>
+                    <label for="userId">Cédula del Propietario</label>
+                    <h:inputText class="form-control" id="userId" value="#{searchController.idClient}" required="true"></h:inputText>
                 </div>
-                    <button type="submit" class="btn btn-success btn-primary btn-block">¡Buscar!</button>
-            </form>
+                <h:commandButton type="submit" class="btn btn-success btn-primary btn-block" action="#{searchController.searchProperty()}" value="¡Buscar!"></h:commandButton>
+            </h:form>
         </div>
     </h:body>
 </html>

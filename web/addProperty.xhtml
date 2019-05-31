@@ -18,14 +18,14 @@ and open the template in the editor.
         <div class="container">
             <h1 class="text-center">Agregar Propiedad</h1>
             <p class="text-center">Llena el siguiente formulario para agregar una nueva propiedad a tu nombre.</p>
-            <form class="u-margin-top-big">
+            <h:form class="u-margin-top-big">
                 <div class="form-group">
                     <label for="adress">Dirección</label>
-                    <input type="text" class="form-control" id="adress" placeholder="1234 Main St" required="true"></input>
+                    <h:inputText class="form-control" id="adress" required="true" value="#{addPropertyController.property.adress}"></h:inputText>
                 </div>
                 <div class="form-group">
                     <label for="noRooms">Número de Cuartos</label>
-                    <input type="number" class="form-control" id="noRooms" placeholder="Número de Cuartos" required="true"></input>
+                    <h:inputText class="form-control" id="noRooms"  required="true" value="#{addPropertyController.property.numberRooms}"></h:inputText>
                 </div>
                 <div class="form-group">
                     <label for="rent">Costo de Renta</label>
@@ -33,11 +33,21 @@ and open the template in the editor.
                         <div class="input-group-prepend">
                             <div class="input-group-text">$</div>
                         </div>
-                        <input type="number" class="form-control" id="rent" placeholder="Costo de Renta" required="true"></input>
+                        <h:inputText class="form-control" id="rent" required="true" value="#{addPropertyController.property.rent}"></h:inputText>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-warning btn-primary btn-block">Guardar</button>
-            </form>
+                <h:commandButton class="btn btn-warning btn-primary btn-block" value="Guardar" action="#{addPropertyController.addProperty()}"></h:commandButton>
+                <h:panelGroup rendered="#{addPropertyController.confirmationMessage eq '¡Propiedad Agregada!'}">
+                    <div class="alert alert-success" role="alert">
+                        <h:outputLabel value="#{addPropertyController.confirmationMessage}" ></h:outputLabel>
+                    </div>
+                </h:panelGroup>
+                <h:panelGroup rendered="#{addPropertyController.confirmationMessage eq 'Error al Agregar Propiedad'}">
+                    <div class="alert alert-danger" role="alert" style="margin-top: 2rem">
+                        <h:outputLabel value="#{addPropertyController.confirmationMessage}" ></h:outputLabel>
+                    </div>
+                </h:panelGroup>
+            </h:form>
         </div>
     </h:body>
 </html>
