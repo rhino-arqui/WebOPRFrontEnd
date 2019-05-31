@@ -61,21 +61,22 @@ and open the template in the editor.
 
                 </h:dataTable>
 
-                <h:form class="select-property">
+                
+            </h:panelGroup>
+            <h:form class="select-property">
                     <label for="select-property">Selecciona Una Propiedad</label>
                     <div class="row">
                         <div class="col">
-                            <h:selectOneMenu value = "#{searchController.selectedPropertyAdress}" class="form-control"> 
-                                <f:selectItems  value="#{searchController.properties}" var="property" itemValue="#{property.adress}" itemLabel="#{property.adress}"/> 
+                            <h:selectOneMenu value = "#{searchController.selectedProperty}" class="form-control"> 
+                                <f:selectItems  value="#{searchController.properties}" var="property" itemValue="#{property}" itemLabel="#{property.adress}"/> 
                             </h:selectOneMenu> 
                         </div>
                         <div class="col">
-                            <button type="submit" class="btn btn-primary btn-block">Enviar Solicitud</button>
+                            <h:commandButton type="submit" class="btn btn-primary btn-block" value="Enviar Solicitud" action="#{searchController.createRentRequest()}"></h:commandButton>
                         </div>
 
                     </div>
                 </h:form>
-            </h:panelGroup>
         </div>
         <div class="p-5"></div>
     </h:body>

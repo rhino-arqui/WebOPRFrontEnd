@@ -24,7 +24,7 @@ import proxies.PropertyProxy;
 public class AddPropertyController {
 
     @ManagedProperty(value="#{loginController}")
-    private LoginController loginController; // +setter
+    private LoginController loginController;
     private Property property;
     private final Gson gson;
     private final PropertyProxy propertyProxy;
