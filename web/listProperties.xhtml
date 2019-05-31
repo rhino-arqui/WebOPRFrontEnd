@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"></link>
+        <link rel="stylesheet" href="./css/main.css"></link>
+        <title>Houses of Dreams</title>
+    </h:head>
+    <h:body class="u-pading-top">
+        <ui:include src="/navbar.xhtml" />
+        <div class="container">
+            <h1 class="text-center">Lista de Propiedades</h1>
+            <p class="text-center">En la siguente tabla se encuentran todas las propiedades del usuario identificado con la cédula <br></br> 1018496464 </p>
+            
+            <table class="table table-hover u-margin-top-big">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Número de Cuartos</th>
+                        <th scope="col">Dirección</th>
+                        <th scope="col">Costo de Renta</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">5342</th>
+                        <td>2</td>
+                        <td>8841 Hillcrest St. Hammonton, NJ 08037</td>
+                        <td>$399.95</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">64</th>
+                        <td>5</td>
+                        <td>584 Jefferson St. Lansdale, PA 19446</td>
+                        <td>$899.95</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">8539</th>
+                        <td>1</td>
+                        <td>936 Border St. Griffin, GA 30223</td>
+                        <td>$1,149.95</td>
+                    </tr>
+                </tbody>
+            </table>
+            <form>
+                <label for="select-property">Selecciona Una Propiedad</label>
+                <div class="row">
+                    <div class="col">
+                        <select class="form-control" id="select-property">
+                            <option value="+47">8841 Hillcrest St. Hammonton, NJ 08037</option>
+                            <option value="+46">584 Jefferson St. Lansdale, PA 19446</option>
+                            <option value="+45">936 Border St. Griffin, GA 30223</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <button type="submit" class="btn btn-primary btn-block">Enviar Solicitud</button>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </h:body>
+</html>
