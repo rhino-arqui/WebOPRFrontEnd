@@ -19,6 +19,7 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import javax.ws.rs.core.Response;
 import proxies.PropertyProxy;
+import utils.EndPoints;
 
 /**
  *
@@ -37,6 +38,7 @@ public class SearchController {
     private int responseStatus;
     @ManagedProperty(value="#{loginController}")
     private LoginController loginController;
+    private RentRecord newRentRecord;
     
     /**
      * Creates a new instance of SearchController
@@ -104,6 +106,15 @@ public class SearchController {
         String requestBody = this.gson.toJson(record, RentRecord.class);
         Response res = this.rentarProxy.postJson(requestBody);
         this.responseStatus = res.getStatus();
+        if(this.responseStatus == 201) {
+            String jsonResponse = res.readEntity(String.class);
+            this.newRentRecord = this.gson.fromJson(jsonResponse, RentRecord.class);
+        }
+    }
+    
+    public String getConfirmationLink() {
+        String id = (this.newRentRecord == null) ? "" : this.newRentRecord.getId().toString();
+        return EndPoints.OprEndPoint + "/confirm/" + id;
     }
     
 }

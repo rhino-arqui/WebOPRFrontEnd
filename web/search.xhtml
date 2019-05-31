@@ -78,15 +78,18 @@ and open the template in the editor.
                 </div>
             </h:form>
             <h:panelGroup rendered="#{searchController.responseStatus eq 201}">
-                    <div class="alert alert-success" role="alert" style="margin-top: 2rem">
-                        <h:outputLabel value="Solicitud Enviada Correctamente" ></h:outputLabel>
-                    </div>
-                </h:panelGroup>
-                <h:panelGroup rendered="#{searchController.responseStatus ne 201 and searchController.responseStatus ne 0}">
-                    <div class="alert alert-danger" role="alert" style="margin-top: 2rem">
-                        <h:outputLabel value="Error al enviar la solicitud" ></h:outputLabel>
-                    </div>
-                </h:panelGroup>
+                <div class="alert alert-success" role="alert" style="margin-top: 2rem">
+                    <h:outputLabel value="Solicitud Enviada Correctamente" ></h:outputLabel>
+                </div>
+                <a href="#{searchController.confirmationLink}" class="btn btn-info btn-block" target="_blank">Ver Estado del Contrato</a>
+                <a href="#{searchController.confirmationLink}" target="_blank">#{searchController.confirmationLink}</a>
+                
+            </h:panelGroup>
+            <h:panelGroup rendered="#{searchController.responseStatus ne 201 and searchController.responseStatus ne 0}">
+                <div class="alert alert-danger" role="alert" style="margin-top: 2rem">
+                    <h:outputLabel value="Error al enviar la solicitud" ></h:outputLabel>
+                </div>
+            </h:panelGroup>
         </div>
         <div class="p-5"></div>
     </h:body>
