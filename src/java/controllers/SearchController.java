@@ -11,11 +11,12 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import entities.Property;
 import entities.RentRecord;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.RequestScoped;
+import javax.faces.bean.ViewScoped;
 import javax.ws.rs.core.Response;
 import proxies.PropertyProxy;
 
@@ -24,15 +25,16 @@ import proxies.PropertyProxy;
  * @author JuanPablo
  */
 @ManagedBean(name="searchController")
-@RequestScoped
-public class SearchController {
+@ViewScoped
+public class SearchController { 
 
     private String idClient;
     private final PropertyProxy propertyProxy;
     private final RentarProxy rentarProxy;
     private ArrayList<Property> properties;
     private final Gson gson;
-    private Property selectedProperty;
+    private String selectedPropertyId;
+    private int responseStatus;
     @ManagedProperty(value="#{loginController}")
     private LoginController loginController;
     
@@ -44,8 +46,9 @@ public class SearchController {
         this.propertyProxy = new PropertyProxy();
         this.properties = new ArrayList<>();
         this.rentarProxy = new RentarProxy();
+        this.responseStatus = 0;
     }
-
+    
     public String getIdClient() {
         return idClient;
     }
@@ -55,6 +58,7 @@ public class SearchController {
     }
 
     public ArrayList<Property> getProperties() {
+        if(this.properties.isEmpty()) this.searchProperty();
         return properties;
     }
 
@@ -62,18 +66,18 @@ public class SearchController {
         this.properties = properties;
     }
 
-    public Property getSelectedProperty() {
-        return selectedProperty;
+    public String getSelectedPropertyId() {
+        return selectedPropertyId;
     }
 
-    public void setSelectedProperty(Property selectedProperty) {
-        this.selectedProperty = selectedProperty;
+    public void setSelectedPropertyId(String selectedPropertyId) {
+        this.selectedPropertyId = selectedPropertyId;
     }
-
-    public String searchProperty() {
+    
+    public void searchProperty() {
         String res = this.propertyProxy.getSearchByCedula(idClient);
         this.properties = this.gson.fromJson(res, new TypeToken<List<Property>>(){}.getType());
-        return "search"; // TODO - CHANGE
+        //return "search"; // TODO - CHANGE
     }
 
     public LoginController getLoginController() {
@@ -83,17 +87,23 @@ public class SearchController {
     public void setLoginController(LoginController loginController) {
         this.loginController = loginController;
     }
+
+    public int getResponseStatus() {
+        return responseStatus;
+    }
+
+    public void setResponseStatus(int responseStatus) {
+        this.responseStatus = responseStatus;
+    }
     
     public void createRentRequest() {
-        System.out.println("Create");
         RentRecord record = new RentRecord();
-        System.out.println(this.selectedProperty == null);
-        //record.setClientId(this.loginController.getClient());
-        //record.setPropertyId(selectedProperty);
-        //String requestBody = this.gson.toJson(record, RentRecord.class);
-        //Response res = this.rentarProxy.postJson(requestBody);
-        //System.out.println(res.getStatus());
-        //return "search";
+        Property propertyToRent = new Property(new BigDecimal(this.selectedPropertyId));
+        record.setClientId(this.loginController.getClient());
+        record.setPropertyId(propertyToRent);
+        String requestBody = this.gson.toJson(record, RentRecord.class);
+        Response res = this.rentarProxy.postJson(requestBody);
+        this.responseStatus = res.getStatus();
     }
     
 }
