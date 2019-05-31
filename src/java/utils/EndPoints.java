@@ -9,5 +9,5 @@ package utils;
  * @author JuanPablo
  */
 public class EndPoints {
-    public static final String OprEndPoint = "http://localhost:8080/NegocioOPR/api";
+    public static final String OprEndPoint = "http://10.192.12.42:8080/NegocioOPR/api";
 }

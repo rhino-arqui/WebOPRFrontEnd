@@ -9,9 +9,9 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import entities.Property;
 import java.math.BigDecimal;
-import javax.enterprise.context.RequestScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.RequestScoped;
 import javax.ws.rs.core.Response;
 import proxies.PropertyProxy;
 

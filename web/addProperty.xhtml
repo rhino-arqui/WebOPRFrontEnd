@@ -38,7 +38,7 @@ and open the template in the editor.
                 </div>
                 <h:commandButton class="btn btn-warning btn-primary btn-block" value="Guardar" action="#{addPropertyController.addProperty()}"></h:commandButton>
                 <h:panelGroup rendered="#{addPropertyController.confirmationMessage eq '¡Propiedad Agregada!'}">
-                    <div class="alert alert-success" role="alert">
+                    <div class="alert alert-success" role="alert" style="margin-top: 2rem">
                         <h:outputLabel value="#{addPropertyController.confirmationMessage}" ></h:outputLabel>
                     </div>
                 </h:panelGroup>

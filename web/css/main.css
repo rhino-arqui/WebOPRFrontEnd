@@ -35,3 +35,7 @@ p {
     left: 0;
     width: 100%;
 }
+
+.select-property {
+    margin-bottom: 10rem;
+}

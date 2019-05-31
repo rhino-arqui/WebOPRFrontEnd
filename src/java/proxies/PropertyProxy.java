@@ -9,6 +9,7 @@ import javax.ws.rs.ClientErrorException;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.Response;
+import utils.EndPoints;
 
 /**
  * Jersey REST client generated for REST resource:PropertiesResource
@@ -27,7 +28,7 @@ public class PropertyProxy {
 
     private WebTarget webTarget;
     private Client client;
-    private static final String BASE_URI = "http://localhost:8080/NegocioOPR/api";
+    private static final String BASE_URI = EndPoints.OprEndPoint;
 
     public PropertyProxy() {
         client = javax.ws.rs.client.ClientBuilder.newClient();
@@ -43,8 +44,13 @@ public class PropertyProxy {
         return resource.request(javax.ws.rs.core.MediaType.APPLICATION_JSON).get(String.class);
     }
 
+    public String getSearchByCedula(String id) {
+        WebTarget resource = webTarget;
+        return resource.request(javax.ws.rs.core.MediaType.APPLICATION_JSON).get(String.class);
+    }
+
     public void close() {
         client.close();
     }
-    
+
 }
